@@ -1,0 +1,81 @@
+{
+  "brand": "Parker",
+  "product_series": "Series BVAL",
+  "category": "Industrial Valves",
+  "unspsc_code": "40141607",
+  "standardized_title": "Parker Series BVAL 2-Way Aluminum Ball Valve",
+  "attributes": [
+    {
+      "key": "Maximum Pressure",
+      "value": "28 Bar (400 PSI)",
+      "unit": "Bar",
+      "source_citation": "Maximum Pressure 28 Bar (400 PSI)"
+    },
+    {
+      "key": "Body Material",
+      "value": "Aluminum",
+      "unit": null,
+      "source_citation": "Body Material Aluminum"
+    },
+    {
+      "key": "Ball Material",
+      "value": "Brass, Chrome Plated",
+      "unit": null,
+      "source_citation": "Ball Material Brass, Chrome Plated"
+    },
+    {
+      "key": "Stem Material",
+      "value": "Brass, Oversize Bearing Area",
+      "unit": null,
+      "source_citation": "Stem Material Brass, Oversize Bearing Area"
+    },
+    {
+      "key": "Standard Handle",
+      "value": "Aluminum Offset",
+      "unit": null,
+      "source_citation": "Standard Handle Aluminum Offset"
+    },
+    {
+      "key": "Standard Ball Seals",
+      "value": "PTFE",
+      "unit": null,
+      "source_citation": "Standard Ball Seals PTFE standard"
+    },
+    {
+      "key": "Standard Shaft Seals",
+      "value": "O-Ring & Backup, Nitrile",
+      "unit": null,
+      "source_citation": "Standard Shaft Seals O-Ring & Backup, Nitrile"
+    },
+    {
+      "key": "Minimum Operating Temperature",
+      "value": "-30",
+      "unit": "\u00b0C",
+      "source_citation": "Temperature Range -30\u00b0C to +100\u00b0C with Standard Seals (-22\u00b0F to +212\u00b0F)"
+    },
+    {
+      "key": "Maximum Operating Temperature",
+      "value": "100",
+      "unit": "\u00b0C",
+      "source_citation": "Temperature Range -30\u00b0C to +100\u00b0C with Standard Seals (-22\u00b0F to +212\u00b0F)"
+    },
+    {
+      "key": "Port Size Range",
+      "value": "1/4\" to 4\"",
+      "unit": "inch",
+      "source_citation": "This series is available from 1/4\" to 4\" ports NPT, SAE and BSPP"
+    }
+  ],
+  "marketing_description": "Parker Series BVAL 2-way ball valves are engineered to deliver reliable, leak-free performance in hydraulic suction and low-pressure return line applications. Constructed with a lightweight aluminum body, chrome-plated brass ball, and top-grade PTFE ball seats, these valves ensure smooth operation and unrestricted flow to eliminate cavitation. Operating from fully closed to fully open with a simple 90-degree handle rotation, the BVAL series is available in port sizes ranging from 1/4\" to 4\" with NPT, SAE, BSPP, and ISO 6149 thread options to suit diverse industrial configurations.",
+  "bullet_points": [
+    "Designed specifically for suction line and low-pressure return line applications",
+    "Unrestricted bore from 1/4\" to 4\" eliminates cavitation and flow restriction",
+    "Lightweight aluminum body with chrome-plated brass ball and oversized brass stem",
+    "Top-grade PTFE ball seats with O-ring seals ensure smooth, leak-free operation",
+    "Available with NPT, BSPP, SAE, and ISO 6149 thread options",
+    "Rated for maximum working pressures up to 28 Bar (400 PSI)",
+    "Wide operating temperature range of -30\u00b0C to +100\u00b0C (-22\u00b0F to +212\u00b0F) with standard seals"
+  ],
+  "confidence_score": 0.95,
+  "flagged_for_human_review": false
+}

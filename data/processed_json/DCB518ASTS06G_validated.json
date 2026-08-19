@@ -1,0 +1,51 @@
+{
+  "validated_product": {
+    "brand": "Diablo",
+    "product_series": "Diablo Sanding Belts",
+    "category": "Sanding Belts",
+    "unspsc_code": "31191509",
+    "standardized_title": "Diablo 1/2\" x 18\" Assorted Grit Sanding Belts (6-Pack)",
+    "attributes": [
+      {
+        "key": "Width",
+        "value": "1/2",
+        "unit": "inch",
+        "source_citation": "DCB518ASTS06G Diablo 1/2\"x18\" - Sanding Belt 6pc"
+      },
+      {
+        "key": "Length",
+        "value": "18",
+        "unit": "inch",
+        "source_citation": "DCB518ASTS06G Diablo 1/2\"x18\" - Sanding Belt 6pc"
+      },
+      {
+        "key": "Package Quantity",
+        "value": "6",
+        "unit": "pcs",
+        "source_citation": "Sanding Belt 6pc"
+      },
+      {
+        "key": "Grit",
+        "value": "Assorted",
+        "unit": null,
+        "source_citation": "DCB518ASTS06G"
+      }
+    ],
+    "marketing_description": "The Diablo 1/2 in. x 18 in. Assorted Grit Sanding Belts (6-Pack) deliver professional-grade sanding performance and extended life when working with wood, metal, and plastics. Designed for use with bandfile detail sanders, these high-quality abrasive belts feature a premium grain blend for fast material removal and a high-strength joint connection to resist breakage under heavy load.",
+    "bullet_points": [
+      "Premium abrasive grain blend for rapid material removal and long sanding life",
+      "Includes an assortment of grits ideal for taking projects from initial stock removal to final finish",
+      "High-strength belt joint ensures durability and resists breakage under heavy load",
+      "Fits 1/2 in. x 18 in. bandfile detail sanders",
+      "Convenient 6-pack provides multiple grits for versatile applications"
+    ],
+    "confidence_score": 0.95,
+    "flagged_for_human_review": false
+  },
+  "final_confidence_score": 0.95,
+  "is_flagged_for_review": true,
+  "audit_logs": [
+    "Grounding Warning: Attribute 'Grit' value 'Assorted' not explicitly found in source text."
+  ],
+  "raw_input_text": "\n                    Manufacturer Part Number: DCB518ASTS06G\n                    Raw Part Description: DCB518ASTS06G Diablo 1/2\"x18\" - Sanding Belt 6pc\n                    Manufacturer Reference: Freud Inc (2435)\n                    Existing Brand Tag: -- Unbranded -- / -- No Unilog Brand --\n                    "
+}

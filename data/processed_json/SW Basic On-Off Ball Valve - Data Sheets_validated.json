@@ -1,0 +1,82 @@
+{
+  "is_flagged_for_review": true,
+  "final_confidence_score": 0.95,
+  "audit_logs": [
+    "\u274c Rule Failed: Critical attribute 'maximum pressure' missing."
+  ],
+  "validated_product": {
+    "brand": "Swagelok",
+    "product_series": "40G Series and 40 Series",
+    "category": "Instrumentation Ball Valves",
+    "unspsc_code": "40141607",
+    "standardized_title": "Swagelok 40G and 40 Series Instrumentation Ball Valves",
+    "attributes": [
+      {
+        "key": "Body Materials",
+        "value": "316 Stainless Steel, Alloy 400, Brass",
+        "unit": null,
+        "source_citation": "Material Valve Series Designator 316 SS SS Alloy 400 M Brass B"
+      },
+      {
+        "key": "Seat and Packing Materials",
+        "value": "PTFE, PFA, UHMWPE",
+        "unit": null,
+        "source_citation": "To order a valve with UHMWPE packing, insert E... PFA T UHMWPE E"
+      },
+      {
+        "key": "Maximum Working Pressure (PTFE Packing)",
+        "value": "2500",
+        "unit": "psig",
+        "source_citation": "PTFE packing: 2500 (172) 50 to 150 (10 to 65)"
+      },
+      {
+        "key": "Maximum Working Pressure (Live-loaded PFA/UHMWPE)",
+        "value": "1500",
+        "unit": "psig",
+        "source_citation": "Live-loaded PFA or UHMWPE packing: \u201365 to 150 (\u201353 to 65) 1500 (103)"
+      },
+      {
+        "key": "Maximum Working Pressure (6-Way and 7-Way)",
+        "value": "500",
+        "unit": "psig",
+        "source_citation": "43Z6 (7-way) ... 500 (34.4)"
+      },
+      {
+        "key": "Flow Coefficient (Cv) Range",
+        "value": "0.05 to 12",
+        "unit": null,
+        "source_citation": "Cv ... 0.05 ... 12"
+      },
+      {
+        "key": "End Connection Types",
+        "value": "Swagelok Tube Fittings, Female NPT, Female ISO/BSP, Male NPT, VCO, VCR",
+        "unit": null,
+        "source_citation": "Swagelok tube fittings, Female NPT, Female ISO/BSP tapered, Male NPT, VCO fittings, Integral male VCR fittings"
+      },
+      {
+        "key": "End Connection Sizes",
+        "value": "1/16 in. to 3/4 in., 3 mm to 12 mm",
+        "unit": null,
+        "source_citation": "1/16 in. ... 3/4 in. ... 3 mm ... 12 mm"
+      },
+      {
+        "key": "Factory Test Pressure",
+        "value": "1000",
+        "unit": "psig",
+        "source_citation": "Every 40G series and 40 series ball valve is factory tested with nitrogen at 1000 psig (69 bar)"
+      }
+    ],
+    "marketing_description": "The Swagelok 40G and 40 Series Instrumentation Ball Valves offer reliable, leak-tight control for a wide range of fluid system applications. Featuring a capsule seat packing design that minimizes dead space and allows for precise switching, these valves are available in 2-way (on-off), 3-way (switching), 4-way/6-way (crossover), and 5-way/7-way configurations. Constructed from high-quality materials such as 316 Stainless Steel, Alloy 400, and Brass, they support multiple packing options including PTFE, live-loaded PFA, and UHMWPE to handle temperatures from -65 F to 300 F and pressures up to 2500 psig. With a vast selection of fractional and metric end connections, manual handles, and pneumatic or electric actuation options, these valves provide exceptional versatility and performance for demanding industrial and analytical systems.",
+    "bullet_points": [
+      "Versatile flow configurations including 2-way on-off, 3-way switching, 4-way and 6-way crossover, and 5-way and 7-way switching models",
+      "Capsule seat packing design ensures reliable switching and minimizes fluid entrapment",
+      "Available in 316 Stainless Steel, Alloy 400, and Brass body materials to suit diverse chemical compatibility requirements",
+      "Flexible packing options: PTFE, live-loaded PFA, and UHMWPE for low-temperature and specialized services",
+      "Wide range of end connections including Swagelok tube fittings (1/16 to 3/4 in.; 3 to 12 mm), NPT, ISO/BSP, VCO, and VCR fittings",
+      "Supports manual operation with directional, oval, or bar handles, as well as pneumatic (standard and ISO 5211-compliant) and electric actuation",
+      "Factory tested with nitrogen at 1000 psig (69 bar) or maximum rated pressure to ensure leak-tight performance"
+    ],
+    "confidence_score": 0.95,
+    "flagged_for_human_review": true
+  }
+}

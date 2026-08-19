@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2026-08-17 17:55:15",
+    "file_name": "Unihack_ Sample Dataset - Input.csv (Row 1)",
+    "action": "CSV Record Extraction",
+    "details": "Enriched SKU 'DCB518ASTS06G' with confidence score 95%."
+  },
+  {
+    "timestamp": "2026-08-17 17:38:33",
+    "file_name": "Unihack_ Sample Dataset - Input.csv (Row 1)",
+    "action": "CSV Record Extraction",
+    "details": "Enriched SKU 'DCB518ASTS06G' with confidence score 95%."
+  },
+  {
+    "timestamp": "2026-08-17 17:26:00",
+    "file_name": "Unihack_ Sample Dataset - Input.csv (Row 1)",
+    "action": "CSV Record Extraction",
+    "details": "Enriched SKU 'DCB518ASTS06G' with confidence score 95%."
+  },
+  {
+    "timestamp": "2026-08-10 18:32:55",
+    "file_name": "dbms.pdf",
+    "action": "Live Extraction Run",
+    "details": "Generated structured SKU with confidence score 90%."
+  },
+  {
+    "timestamp": "2026-08-10 18:08:46",
+    "file_name": "BVAL_validated.json",
+    "action": "Human In-Line Table Edit",
+    "details": "Updated attribute specifications and approved SKU for PIM publishing."
+  },
+  {
+    "timestamp": "2026-08-10 18:05:49",
+    "file_name": "SQD-HGL36050T_CATALOGUE_validated.json",
+    "action": "Human In-Line Table Edit",
+    "details": "Updated attribute specifications and approved SKU for PIM publishing."
+  }
+]

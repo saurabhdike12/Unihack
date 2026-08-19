@@ -1,0 +1,70 @@
+{
+  "is_flagged_for_review": true,
+  "final_confidence_score": 0.9,
+  "audit_logs": [
+    "\u274c Rule Failed: Critical attribute 'maximum pressure' missing.",
+    "\u274c Rule Failed: Critical attribute 'body material' missing."
+  ],
+  "validated_product": {
+    "brand": "WBSETCL",
+    "product_series": "TECH SPEC / Rev.-3",
+    "category": "Outdoor High Voltage Circuit Breakers",
+    "unspsc_code": "39121616",
+    "standardized_title": "WBSETCL Outdoor SF6 and Vacuum Circuit Breakers (36 kV to 420 kV)",
+    "attributes": [
+      {
+        "key": "Rated Voltages",
+        "value": "36 kV, 72.5 kV, 145 kV, 245 kV, 420 kV",
+        "unit": "kV",
+        "source_citation": "This specification covers design, manufacture, assembly, testing at manufacturer\u2019s works of SF6 Circuit Breaker of 420KV, 245 KV, 145KV, 72.5KV & Vacuum Circuit Breaker of 36 KV class"
+      },
+      {
+        "key": "Insulation Medium",
+        "value": "SF6 Gas (72.5 kV to 420 kV) / Vacuum (36 kV)",
+        "unit": null,
+        "source_citation": "The circuit breakers of 72.5KV to 420KV class shall be of outdoor type SF6 CB and 36KV class shall be of outdoor type Vacuum CB."
+      },
+      {
+        "key": "Operating Duty Cycle",
+        "value": "O-0.3 sec-CO-3.0 min-CO",
+        "unit": null,
+        "source_citation": "Operating duty of all circuit breakers from voltage range 36 KV to 420KV shall be as follows : O-0.3 sec-CO-3.0 min-CO"
+      },
+      {
+        "key": "Control Voltage",
+        "value": "220 V DC",
+        "unit": "V",
+        "source_citation": "All controls shall be suitable for 85% to 110% for closing and 70% to 110% for tripping of 220V(\u00b110%) D.C supply voltage for 33 KV & above."
+      },
+      {
+        "key": "Enclosure Protection Rating",
+        "value": "IP-55",
+        "unit": null,
+        "source_citation": "Degree of protection shall be IP-55 as per IS:13947"
+      },
+      {
+        "key": "Seismic Acceleration",
+        "value": "0.3g horizontal",
+        "unit": "g",
+        "source_citation": "Seismic acceleration 0.3g horizontal"
+      },
+      {
+        "key": "Maximum Ambient Temperature",
+        "value": "50",
+        "unit": "\u00b0C",
+        "source_citation": "Equipment shall be designed for taking 50\u00baC as maximum ambient temperature."
+      }
+    ],
+    "marketing_description": "This technical specification outlines the rigorous design, manufacturing, and testing standards for high-voltage outdoor circuit breakers (36 kV to 420 kV) utilized in electrical transmission systems. Featuring SF6 gas insulation for 72.5 kV to 420 kV classes and vacuum technology for the 36 kV class, these breakers are engineered for exceptional reliability, high symmetrical fault interrupting capacities up to 50 kA, and robust performance under extreme environmental conditions. Complete with hot-dip galvanized support structures, advanced spring-operated mechanisms, and IP-55 rated weather-proof marshalling boxes, they ensure seamless integration and long-term operational safety in utility substations.",
+    "bullet_points": [
+      "Covers outdoor SF6 circuit breakers (72.5 kV to 420 kV) and Vacuum circuit breakers (36 kV)",
+      "Designed for effectively earthed systems with symmetrical fault levels up to 50 kA for 1 second (400 kV)",
+      "Standardized operating duty cycle of O-0.3 sec-CO-3.0 min-CO across all voltage classes",
+      "Equipped with electrically controlled, motor-wound spring-operated mechanisms with anti-pumping and trip-free circuitry",
+      "IP-55 rated weather-proof common marshalling box constructed from 3.00 mm thick steel sheet",
+      "Includes temperature-compensated gas density monitors with alarm and lockout contacts for SF6 units"
+    ],
+    "confidence_score": 0.9,
+    "flagged_for_human_review": true
+  }
+}

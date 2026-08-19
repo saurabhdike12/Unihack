@@ -1,0 +1,76 @@
+{
+  "is_flagged_for_review": false,
+  "final_confidence_score": 0.83,
+  "audit_logs": [
+    "\u274c Rule Failed: Critical attribute 'maximum pressure' missing.",
+    "\u274c Rule Failed: Critical attribute 'body material' missing.",
+    "\u26a0\ufe0f Warning: Citation for 'Voltage Rating' could not be grounded in raw text."
+  ],
+  "validated_product": {
+    "brand": "Schneider Electric",
+    "product_series": "PowerPact H- and J-Frame",
+    "category": "Molded Case Circuit Breakers",
+    "unspsc_code": "39121616",
+    "standardized_title": "Schneider Electric PowerPact H- and J-Frame Molded Case Circuit Breakers",
+    "attributes": [
+      {
+        "key": "Voltage Rating",
+        "value": "600 Vac, 250 Vdc",
+        "unit": "V",
+        "source_citation": "Table3.1:H-Frame150AULCurrent-Limiting[1]CircuitBreakerFramewithField-InterchangeableThermal-MagneticTripUnits[2](600Vac,250Vdc)"
+      },
+      {
+        "key": "H-Frame Amperage Range",
+        "value": "15 to 150",
+        "unit": "A",
+        "source_citation": "Table3.1:H-Frame150AULCurrent-Limiting[1]CircuitBreakerFramewithField-InterchangeableThermal-MagneticTripUnits[2]"
+      },
+      {
+        "key": "J-Frame Amperage Range",
+        "value": "150 to 250",
+        "unit": "A",
+        "source_citation": "Table3.2:J-Frame250AULCurrent-Limiting[1]CircuitBreakerFramewithField-InterchangeableThermal-MagneticTripUnits[2]"
+      },
+      {
+        "key": "Number of Poles",
+        "value": "3",
+        "unit": null,
+        "source_citation": "3P,600Vac50/60Hz"
+      },
+      {
+        "key": "Interrupting Rating at 480Vac (D)",
+        "value": "18",
+        "unit": "kA",
+        "source_citation": "Table3.5:H-andJ-FrameInterruptingRatings"
+      },
+      {
+        "key": "Interrupting Rating at 480Vac (G)",
+        "value": "35",
+        "unit": "kA",
+        "source_citation": "Table3.5:H-andJ-FrameInterruptingRatings"
+      },
+      {
+        "key": "Interrupting Rating at 480Vac (J)",
+        "value": "65",
+        "unit": "kA",
+        "source_citation": "Table3.5:H-andJ-FrameInterruptingRatings"
+      },
+      {
+        "key": "Interrupting Rating at 480Vac (L)",
+        "value": "100",
+        "unit": "kA",
+        "source_citation": "Table3.5:H-andJ-FrameInterruptingRatings"
+      }
+    ],
+    "marketing_description": "The Schneider Electric PowerPact H- and J-Frame Molded Case Circuit Breakers deliver industry-leading reliability and flexible circuit protection. Designed for thermal-magnetic and electronic trip versatility, these current-limiting breakers offer interchangeable trip units and a wide range of interrupting ratings up to 100 kA at 480 Vac. Ideal for heavy-duty industrial, commercial, and marine applications, they ensure robust performance and seamless integration into electrical distribution systems.",
+    "bullet_points": [
+      "UL Certified current-limiting performance for J and L interrupting levels",
+      "Field-interchangeable thermal-magnetic and Micrologic electronic trip units",
+      "Amperage ratings spanning 15 A to 150 A (H-Frame) and 150 A to 250 A (J-Frame)",
+      "Versatile termination options including standard lugs, I-Line, plug-in, and drawout configurations",
+      "Available with UL Marine and Naval listings for specialized vessel applications"
+    ],
+    "confidence_score": 0.83,
+    "flagged_for_human_review": true
+  }
+}

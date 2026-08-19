@@ -1,0 +1,87 @@
+{
+  "is_flagged_for_review": true,
+  "final_confidence_score": 0.9,
+  "audit_logs": [
+    "\u274c Rule Failed: Critical attribute 'maximum pressure' missing.",
+    "\u274c Rule Failed: Critical attribute 'body material' missing."
+  ],
+  "validated_product": {
+    "brand": "Alard College of Engineering and Management",
+    "product_series": "Smart Irrigation Management",
+    "category": "Agricultural Irrigation Systems",
+    "unspsc_code": "21101514",
+    "standardized_title": "Smart Irrigation Management System",
+    "attributes": [
+      {
+        "key": "Minimum Processor Speed",
+        "value": "2.0",
+        "unit": "GHz",
+        "source_citation": "Processor: Minimum 2.0 GHz Dual-Core Processor"
+      },
+      {
+        "key": "Minimum RAM",
+        "value": "4",
+        "unit": "GB",
+        "source_citation": "RAM: Minimum 4GB RAM (8GB recommended for smoother multitasking)"
+      },
+      {
+        "key": "Recommended RAM",
+        "value": "8",
+        "unit": "GB",
+        "source_citation": "RAM: Minimum 4GB RAM (8GB recommended for smoother multitasking)"
+      },
+      {
+        "key": "Minimum Storage Space",
+        "value": "500",
+        "unit": "MB",
+        "source_citation": "Storage: 500MB free disk space (for Python environment and database)"
+      },
+      {
+        "key": "Frontend Framework",
+        "value": "Python (Streamlit)",
+        "unit": null,
+        "source_citation": "Built using Python (Streamlit) for a responsive frontend"
+      },
+      {
+        "key": "Backend Database",
+        "value": "MySQL",
+        "unit": null,
+        "source_citation": "MySQL for robust backend data management"
+      },
+      {
+        "key": "Supported Microcontrollers",
+        "value": "ESP32, Arduino",
+        "unit": null,
+        "source_citation": "Microcontroller: ESP32 or Arduino (to send data to the database)"
+      },
+      {
+        "key": "Supported Sensors",
+        "value": "Capacitive Soil Moisture Sensor, DHT11 (Temperature/Humidity)",
+        "unit": null,
+        "source_citation": "Sensors: Capacitive Soil Moisture Sensor, DHT11 (Temperature/Humidity)"
+      },
+      {
+        "key": "Supported Actuators",
+        "value": "5V/12V Relay Module, Submersible Water Pump",
+        "unit": null,
+        "source_citation": "Actuators: 5V/12V Relay Module and Submersible Water Pump"
+      },
+      {
+        "key": "Connectivity",
+        "value": "Wi-Fi Module (integrated in ESP32)",
+        "unit": null,
+        "source_citation": "Connectivity: Wi-Fi Module (integrated in ESP32) for data transmission"
+      }
+    ],
+    "marketing_description": "The Smart Irrigation Management system is an advanced web-based application designed to modernize agricultural practices by automating water usage monitoring and management. Built with a Python (Streamlit) frontend and a MySQL backend, this system provides a centralized digital platform for tracking real-time environmental data, managing diverse field zones, and recording precise soil moisture levels. It eliminates manual paperwork, reduces human error, and promotes sustainable farming through data-driven decision-making.",
+    "bullet_points": [
+      "Centralized digital dashboard for real-time monitoring of registered field zones and crop types.",
+      "Robust MySQL relational database for secure storage of soil parameters, crop requirements, and water distribution logs.",
+      "User-friendly Streamlit interface with manual moisture data logging via an intuitive slider (0-100%).",
+      "Supports optional IoT integration with ESP32/Arduino microcontrollers, capacitive soil moisture sensors, and DHT11 temperature/humidity sensors.",
+      "Enables historical data tracking and trend analysis to minimize water wastage and reduce pumping costs."
+    ],
+    "confidence_score": 0.9,
+    "flagged_for_human_review": true
+  }
+}

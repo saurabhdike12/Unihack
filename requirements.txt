@@ -1,0 +1,6 @@
+streamlit
+pandas
+pdfplumber
+pydantic
+python-dotenv
+langchain-google-genai
