@@ -14,7 +14,7 @@ load_dotenv()
 
 # --- STREAMLIT PAGE CONFIG ---
 st.set_page_config(
-    page_title="SpecPulse | AI Product Intelligence Engine",
+    page_title="CogniSpec | AI Product Intelligence Engine",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -230,7 +230,7 @@ def log_history_action(file_name, action, details):
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2)
 
-def format_sku_to_SpecPulse_delivery(product_dict: dict) -> pd.DataFrame:
+def format_sku_to_CogniSpec_delivery(product_dict: dict) -> pd.DataFrame:
     """Transforms internal SKU intelligence into Unilog Expected Delivery Schema."""
     row = {
         "Mfg_Part_Num": product_dict.get("manufacturer_part_number", ""),
@@ -394,7 +394,7 @@ def modal_view_history():
 # --- HERO BANNER ---
 st.markdown("""
 <div class="hero-container">
-    <div class="hero-title">⚡ SpecPulse AI Product Intelligence Engine</div>
+    <div class="hero-title">⚡ CogniSpec AI Product Intelligence Engine</div>
     <div class="hero-subtitle">Enterprise B2B Catalog Extraction, Automated Guardrails & Explainable Confidence Scoring</div>
 </div>
 """, unsafe_allow_html=True)
@@ -613,7 +613,7 @@ else:
 
             with btn_col2:
                 # Generate delivery DataFrame and export
-                delivery_df = format_sku_to_SpecPulse_delivery(product)
+                delivery_df = format_sku_to_CogniSpec_delivery(product)
                 csv_bytes = delivery_df.to_csv(index=False).encode("utf-8")
 
                 st.download_button(
