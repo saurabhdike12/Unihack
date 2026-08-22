@@ -667,6 +667,8 @@ else:
                     'MANUFACTURER_PART_NUMBER', 'ALTERNATE_PART_NUMBER', 'Classpath', 'MOBILE_DESC', 'INVOICE_DESC',
                     'SHORT_DESC', 'LONG_DESC1', 'RETAIL_DESC', 'MARKETING_DESCRIPTION'
                 ] + [f'ITEM_FEATURES_{i}' for i in range(1, 21)] + [
+                    'With', 'Standard/Approvals', 'Prop 65', 'Application', 'Includes', 'Product Name'
+                ] + [
                     item for i in range(1, 51) for item in (f'ATTRIBUTE_LABEL {i}', f'ATTRIBUTE_VALUE {i}', f'ATTRIBUTE_UOM {i}')
                 ] + [
                     'UPC', 'EAN', 'GTIN', 'UNSPSC', 'Warranty', 'List Price', 'Selling Qty', 'Selling UOM',
@@ -680,7 +682,7 @@ else:
                 ]
 
                 # 3. Ensure Part Number fields are filled and reindex to 252 columns
-                part_num = current_filename.replace('.json', '').replace('.pdf', '')
+                part_num = current_filename.replace('.json', '').replace('.pdf', '').replace('_validated','')
                 if "Mfg_Part_Num" in clean_export_df.columns:
                     clean_export_df["Mfg_Part_Num"] = clean_export_df["Mfg_Part_Num"].fillna(part_num)
                     if clean_export_df["Mfg_Part_Num"].iloc[0] == "":
