@@ -4,3 +4,5 @@ pdfplumber
 pydantic
 python-dotenv
 langchain-google-genai
+google-genai
+pillow
