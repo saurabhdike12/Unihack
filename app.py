@@ -237,6 +237,18 @@ def log_history_action(file_name, action, details):
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2)
 
+def export_to_delivery_schema(extracted_df, template_path="Unihack_ Expected Output - Delivery Format.csv"):
+    # 1. Read master template columns dynamically if template exists
+    if os.path.exists(template_path):
+        master_cols = pd.read_csv(template_path, nrows=0).columns.tolist()
+    else:
+        master_cols = unilog_252_cols  # Fallback to standard 252 schema
+
+    # 2. Reindex dynamically: retains matching data, adds missing template columns as empty, drops unexpected extras
+    delivery_df = extracted_df.reindex(columns=master_cols, fill_value="")
+    
+    return delivery_df
+
 def format_unilog_export(df: pd.DataFrame) -> pd.DataFrame:
     # Make a copy to avoid altering the active session state table
     export_df = df.copy()
