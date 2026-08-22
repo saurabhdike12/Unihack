@@ -3,4 +3,6 @@ pandas
 pdfplumber
 pydantic
 python-dotenv
-langchain-google-genai
+langchain-google-genai>=2.0.0
+google-genai
+pillow

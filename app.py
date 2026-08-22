@@ -11,7 +11,14 @@ from schema import EnrichedProduct
 from catalog_validator import CatalogValidator
 
 load_dotenv()
+# Automatically pass Streamlit secrets to the runtime environment for LangChain
+api_key = st.secrets.get("GEMINI_API_KEY") or st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
 
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",
+    google_api_key=api_key,
+    temperature=0.1
+)
 # --- STREAMLIT PAGE CONFIG ---
 st.set_page_config(
     page_title="CogniSpec | AI Product Intelligence Engine",
@@ -229,6 +236,30 @@ def log_history_action(file_name, action, details):
     history.insert(0, log_entry)
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2)
+
+def format_unilog_export(df: pd.DataFrame) -> pd.DataFrame:
+    # Make a copy to avoid altering the active session state table
+    export_df = df.copy()
+
+    # 1. Fix Missing Part Number (Ensure Column A is mapped and not blank)
+    if "Mfg_Part_Num" in export_df.columns:
+        export_df["Mfg_Part_Num"] = export_df["Mfg_Part_Num"].fillna(
+            export_df.get("Part_Number", export_df.get("mpn", ""))
+        )
+
+    # 2. Fix UNSPSC Scientific Notation (Prevent 3.1E+07)
+    if "UNSPSC" in export_df.columns:
+        export_df["UNSPSC"] = export_df["UNSPSC"].apply(
+            lambda x: f'="{int(float(x))}"' if pd.notnull(x) and str(x).strip() != "" else ""
+        )
+
+    # 3. Fix Excel Fraction-to-Date Bug ('1/2' becoming '01-Feb')
+    for col in export_df.columns:
+        if "ATTRIBUTE_VALUE" in col or "value" in col.lower():
+            export_df[col] = export_df[col].apply(
+                lambda v: f'="{v}"' if pd.notnull(v) and "/" in str(v) else v
+            )
+    return export_df
 
 def format_sku_to_CogniSpec_delivery(product_dict: dict) -> pd.DataFrame:
     """Transforms internal SKU intelligence into Unilog Expected Delivery Schema."""
@@ -612,14 +643,48 @@ else:
                     st.rerun()
 
             with btn_col2:
-                # Generate delivery DataFrame and export
+                # 1. Generate delivery DataFrame
                 delivery_df = format_sku_to_CogniSpec_delivery(product)
-                csv_bytes = delivery_df.to_csv(index=False).encode("utf-8")
+                clean_export_df = format_unilog_export(delivery_df)
+
+                # 2. Define the full 252 Unilog Delivery headers
+                unilog_252_cols = [
+                    'MFR URL', 'Ref URL 1', 'Ref URL 2', 'Ref URL 3', 'Ref URL 4', 'Ref URL 5', 'PART_NUMBER',
+                    'Dept', 'Class', 'Fine', 'SKU - MY_PART_NUMBER', 'Mfg_Part_Num', 'Part_Desc', 'E1_Brand',
+                    'Unilog_Brand', 'DIB_Brand', 'Part_Manuf', 'MANUFACTURER_NAME', 'BRAND_NAME', 'TRADE_NAME',
+                    'MANUFACTURER_PART_NUMBER', 'ALTERNATE_PART_NUMBER', 'Classpath', 'MOBILE_DESC', 'INVOICE_DESC',
+                    'SHORT_DESC', 'LONG_DESC1', 'RETAIL_DESC', 'MARKETING_DESCRIPTION'
+                ] + [f'ITEM_FEATURES_{i}' for i in range(1, 21)] + [
+                    item for i in range(1, 51) for item in (f'ATTRIBUTE_LABEL {i}', f'ATTRIBUTE_VALUE {i}', f'ATTRIBUTE_UOM {i}')
+                ] + [
+                    'UPC', 'EAN', 'GTIN', 'UNSPSC', 'Warranty', 'List Price', 'Selling Qty', 'Selling UOM',
+                    'Standard Packaging Information', 'LENGTH', 'LENGTH_UOM', 'HEIGHT', 'HEIGHT_UOM', 'WIDTH',
+                    'WIDTH_UOM', 'WEIGHT', 'WEIGHT_UOM', 'VOLUME', 'VOLUME_UOM', 'Product Image', 'Alternate Image 1',
+                    'Alternate Image 2', 'Alternate Image 3', 'Alternate Image 4', 'SDS', 'SDS_1', 'Warranty Information',
+                    'Catalog', 'Specification Sheet', 'Instruction/Installation Manual', 'Service Manual', 'Owners/User Manual',
+                    'Line Drawing', 'MTR', 'RoHS', 'Full Engineering Drawing', 'Energy Star Guide', 'Technical Bulletin',
+                    'Submittal', 'Compatibility Chart', 'Size Chart', 'Product Label/Insert', 'Video Link', 'Video Link 1',
+                    'Country Of Origin', 'Discontinued', 'Actual Image (Yes/No)'
+                ]
+
+                # 3. Ensure Part Number fields are filled and reindex to 252 columns
+                part_num = current_filename.replace('.json', '').replace('.pdf', '')
+                if "Mfg_Part_Num" in clean_export_df.columns:
+                    clean_export_df["Mfg_Part_Num"] = clean_export_df["Mfg_Part_Num"].fillna(part_num)
+                    if clean_export_df["Mfg_Part_Num"].iloc[0] == "":
+                        clean_export_df.at[0, "Mfg_Part_Num"] = part_num
+                if "MANUFACTURER_PART_NUMBER" in clean_export_df.columns:
+                    clean_export_df["MANUFACTURER_PART_NUMBER"] = clean_export_df["MANUFACTURER_PART_NUMBER"].fillna(part_num)
+                    if clean_export_df["MANUFACTURER_PART_NUMBER"].iloc[0] == "":
+                        clean_export_df.at[0, "MANUFACTURER_PART_NUMBER"] = part_num
+
+                final_252_df = clean_export_df.reindex(columns=unilog_252_cols, fill_value="")
+                csv_bytes = final_252_df.to_csv(index=False).encode("utf-8")
 
                 st.download_button(
                     label="📥 Export to Unilog Delivery Format (.CSV)",
                     data=csv_bytes,
-                    file_name=f"{current_filename.replace('.json', '')}_Unilog_Delivery.csv",
+                    file_name=f"{part_num}_validated_Unilog_Delivery.csv",
                     mime="text/csv",
                     use_container_width=True,
                 )
