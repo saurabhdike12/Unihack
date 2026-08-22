@@ -12,6 +12,12 @@ from catalog_validator import CatalogValidator
 
 load_dotenv()
 
+# Pass Streamlit Secrets directly to runtime environment
+if "GOOGLE_API_KEY" in st.secrets:
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+if "GEMINI_API_KEY" in st.secrets:
+    os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
+    
 # --- STREAMLIT PAGE CONFIG ---
 st.set_page_config(
     page_title="CogniSpec | AI Product Intelligence Engine",
