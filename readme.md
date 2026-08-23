@@ -1,13 +1,15 @@
 # ⚡ CogniSpec AI Engine
 ### An enterprise-grade multi-modal AI pipeline for automated catalog enrichment, taxonomy mapping, and deterministic rule validation.
-🔗 **Live Application Demo:** [https://cognispec-ai.streamlit.app]
 
-🎥 **Walkthrough Video:** [Watch on YouTube]([[https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://youtu.be/PmReAvRpmNs?si=5qg-l58fpr-zHUtK)](https://youtu.be/PmReAvRpmNs?si=5qg-l58fpr-zHUtK))
+[![CogniSpec Demo Video](https://img.youtube.com/vi/PmReAvRpmNs/maxresdefault.jpg)](https://youtu.be/PmReAvRpmNs)
+
+🔗 **Live Application Demo:** [https://cognispec-ai.streamlit.app](https://cognispec-ai.streamlit.app)  
+🎥 **Walkthrough Video:** [Watch on YouTube](https://youtu.be/PmReAvRpmNs)
+
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cognispec-ai.streamlit.app)
-[![Built with Gemini](https://img.shields.io/badge/Model-Gemini%20Flash%20%2F%20Pro-blue)](https://ai.google.dev/)
+[![Built with Gemini](https://img.shields.io/badge/Model-Gemini%202.5%20Flash%20%26%20Pro-blue)](https://ai.google.dev/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![Pydantic](https://img.shields.io/badge/Validation-Pydantic%20v2-E92063?logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
-
 CogniSpec AI is an enterprise-grade product data intelligence engine that automates the ingestion, parsing, normalization, and validation of complex B2B technical datasheets and catalogs.
 
 ---
