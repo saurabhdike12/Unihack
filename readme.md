@@ -1,6 +1,7 @@
 # ⚡ CogniSpec AI Engine
 ### An enterprise-grade multi-modal AI pipeline for automated catalog enrichment, taxonomy mapping, and deterministic rule validation.
 🔗 **Live Application Demo:** [https://cognispec-ai.streamlit.app]
+
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cognispec-ai.streamlit.app)
 [![Built with Gemini](https://img.shields.io/badge/Model-Gemini%20Flash%20%2F%20Pro-blue)](https://ai.google.dev/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -49,7 +50,7 @@ In industrial B2B commerce and supply chain management, onboarding new supplier 
 
 ## 🏗️ Architecture & Data Flow
 
-```text```
+```text
 Raw Spec Sheet (PDF/Image) + Unenriched Part Data
                       │
                       ▼
@@ -63,7 +64,7 @@ Raw Spec Sheet (PDF/Image) + Unenriched Part Data
                       │
                       ▼
 [ Export to 252-Column Unilog Delivery Schema (.CSV) ]
-
+```
 ---
 
 ## 📦 Quick Start (Local Setup)
