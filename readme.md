@@ -51,19 +51,19 @@ In industrial B2B commerce and supply chain management, onboarding new supplier 
 ## 🏗️ Architecture & Data Flow
 
 ```text
-Raw Spec Sheet (PDF/Image) + Unenriched Part Data
-                      │
-                      ▼
-         [ Multimodal Extraction (LLM) ]
-                      │
-                      ▼
-   [ Schema Parsing & Attribute Triplet Mapping ]
-                      │
-                      ▼
- [ Deterministic Rule Validation & Confidence Audit ]
-                      │
-                      ▼
-[ Export to 252-Column Unilog Delivery Schema (.CSV) ]
+                           Raw Spec Sheet (PDF/Image) + Unenriched Part Data
+                                                │
+                                                ▼
+                                  [ Multimodal Extraction (LLM) ]
+                                                │
+                                                ▼
+                           [ Schema Parsing & Attribute Triplet Mapping ]
+                                                │
+                                                ▼
+                        [ Deterministic Rule Validation & Confidence Audit ]
+                                                │
+                                                ▼
+                       [ Export to 252-Column Unilog Delivery Schema (.CSV) ]
 ```
 ---
 
