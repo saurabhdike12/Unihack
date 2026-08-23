@@ -1,6 +1,6 @@
 # ⚡ CogniSpec AI Engine
-### Enterprise B2B Catalog Extraction, Schema Guardrails & Grounded Confidence Scoring
-
+### An enterprise-grade multi-modal AI pipeline for automated catalog enrichment, taxonomy mapping, and deterministic rule validation.
+🔗 **Live Application Demo:** [https://cognispec-ai.streamlit.app]
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cognispec-ai.streamlit.app)
 [![Built with Gemini](https://img.shields.io/badge/Model-Gemini%20Flash%20%2F%20Pro-blue)](https://ai.google.dev/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -24,6 +24,9 @@ In industrial B2B commerce and supply chain management, onboarding new supplier 
 
 ## 🚀 Key Features
 
+* **End-to-End Multimodal Pipeline:** Ingests raw supplier spec sheets (PDF/Images) and enriches catalog entries into fully structured attributes.
+* **Accuracy & Anti-Hallucination Guardrails:** Verbatim extraction with source grounding, confidence metrics, and deterministic rule verification to ensure zero false attributes.
+* **Enterprise Taxonomy & Standards Compliance:** Automated UNSPSC classification, attribute triplets (`LABEL`, `VALUE`, `UOM`), and direct export to the 252-column Unilog CIMM2 delivery standard.
 * **⚡ Multimodal PDF Ingestion:** Natively parses raw technical datasheets, CAD dimension blocks, and complex multi-column electrical/mechanical tables.
 * **🛡️ Deterministic Schema Guardrails:** Validates extracted attributes against strict Pydantic models to ensure standard units, range limits, and correct data types.
 * **🎯 Explainable Grounding & Confidence Scoring:** Calculates field-level confidence ratings with direct verbatim citations from the source document to guarantee zero hallucinations.
@@ -41,6 +44,25 @@ In industrial B2B commerce and supply chain management, onboarding new supplier 
 | **Data Validation** | Pydantic v2 | Strict schema enforcement and type integrity |
 | **User Interface** | Streamlit | Responsive dashboard & HITL review workspace |
 | **Environment** | Streamlit Community Cloud | Cloud deployment and secret management |
+
+---
+
+## 🏗️ Architecture & Data Flow
+
+```text```
+Raw Spec Sheet (PDF/Image) + Unenriched Part Data
+                      │
+                      ▼
+         [ Multimodal Extraction (LLM) ]
+                      │
+                      ▼
+   [ Schema Parsing & Attribute Triplet Mapping ]
+                      │
+                      ▼
+ [ Deterministic Rule Validation & Confidence Audit ]
+                      │
+                      ▼
+[ Export to 252-Column Unilog Delivery Schema (.CSV) ]
 
 ---
 
