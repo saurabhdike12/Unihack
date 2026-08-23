@@ -2,7 +2,7 @@
 ### An enterprise-grade multi-modal AI pipeline for automated catalog enrichment, taxonomy mapping, and deterministic rule validation.
 🔗 **Live Application Demo:** [https://cognispec-ai.streamlit.app]
 
-🎥 **Walkthrough Video:** [Watch on YouTube]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://youtu.be/PmReAvRpmNs?si=5qg-l58fpr-zHUtK))
+🎥 **Walkthrough Video:** [Watch on YouTube]([[https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://youtu.be/PmReAvRpmNs?si=5qg-l58fpr-zHUtK)](https://youtu.be/PmReAvRpmNs?si=5qg-l58fpr-zHUtK))
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cognispec-ai.streamlit.app)
 [![Built with Gemini](https://img.shields.io/badge/Model-Gemini%20Flash%20%2F%20Pro-blue)](https://ai.google.dev/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
