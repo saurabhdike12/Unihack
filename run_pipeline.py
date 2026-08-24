@@ -14,7 +14,7 @@ def process_pdf(pdf_path: str, llm):
     print(f"⚙️ Processing Document: {filename}")
     print(f"==========================================")
 
-    # 1. Extract Text
+  
     raw_text = ""
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
@@ -22,17 +22,17 @@ def process_pdf(pdf_path: str, llm):
             if text:
                 raw_text += text + "\n"
 
-    # 2. Extract Structured Data
+   
     structured_llm = llm.with_structured_output(EnrichedProduct)
     prompt = f"Analyze the following raw technical datasheet text and extract accurate, structured product intelligence.\n\n{raw_text}"
     
     raw_extracted: EnrichedProduct = structured_llm.invoke(prompt)
 
-    # 3. Validate & Audit Data
+   
     validator = CatalogValidator(raw_text, raw_extracted)
     audit_report = validator.get_report()
 
-    # 4. Save Processed Result
+    
     output_dir = "data/processed_json"
     os.makedirs(output_dir, exist_ok=True)
     output_filename = f"{output_dir}/{os.path.splitext(filename)[0]}_validated.json"
