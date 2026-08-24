@@ -11,7 +11,7 @@ from schema import EnrichedProduct
 from catalog_validator import CatalogValidator
 
 load_dotenv()
-# Automatically pass Streamlit secrets to the runtime environment for LangChain
+
 api_key = st.secrets.get("GEMINI_API_KEY") or st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
 
 llm = ChatGoogleGenerativeAI(
@@ -19,7 +19,7 @@ llm = ChatGoogleGenerativeAI(
     google_api_key=api_key,
     temperature=0.1
 )
-# --- STREAMLIT PAGE CONFIG ---
+
 st.set_page_config(
     page_title="CogniSpec | AI Product Intelligence Engine",
     page_icon="⚡",
@@ -27,7 +27,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- ACCESSIBLE HIGH-VISIBILITY TYPOGRAPHY & SAAS STYLING ---
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -212,7 +212,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# --- DIRECTORIES & HISTORY HELPERS ---
 json_dir = "data/processed_json"
 os.makedirs(json_dir, exist_ok=True)
 os.makedirs("data/raw_pdfs", exist_ok=True)
@@ -238,34 +237,34 @@ def log_history_action(file_name, action, details):
         json.dump(history, f, indent=2)
 
 def export_to_delivery_schema(extracted_df, template_path="Unihack_ Expected Output - Delivery Format.csv"):
-    # 1. Read master template columns dynamically if template exists
+    
     if os.path.exists(template_path):
         master_cols = pd.read_csv(template_path, nrows=0).columns.tolist()
     else:
-        master_cols = unilog_252_cols  # Fallback to standard 252 schema
+        master_cols = unilog_252_cols 
 
-    # 2. Reindex dynamically: retains matching data, adds missing template columns as empty, drops unexpected extras
+   
     delivery_df = extracted_df.reindex(columns=master_cols, fill_value="")
     
     return delivery_df
 
 def format_unilog_export(df: pd.DataFrame) -> pd.DataFrame:
-    # Make a copy to avoid altering the active session state table
+    
     export_df = df.copy()
 
-    # 1. Fix Missing Part Number (Ensure Column A is mapped and not blank)
+    
     if "Mfg_Part_Num" in export_df.columns:
         export_df["Mfg_Part_Num"] = export_df["Mfg_Part_Num"].fillna(
             export_df.get("Part_Number", export_df.get("mpn", ""))
         )
 
-    # 2. Fix UNSPSC Scientific Notation (Prevent 3.1E+07)
+    
     if "UNSPSC" in export_df.columns:
         export_df["UNSPSC"] = export_df["UNSPSC"].apply(
             lambda x: f'="{int(float(x))}"' if pd.notnull(x) and str(x).strip() != "" else ""
         )
 
-    # 3. Fix Excel Fraction-to-Date Bug ('1/2' becoming '01-Feb')
+   
     for col in export_df.columns:
         if "ATTRIBUTE_VALUE" in col or "value" in col.lower():
             export_df[col] = export_df[col].apply(
@@ -286,12 +285,12 @@ def format_sku_to_CogniSpec_delivery(product_dict: dict) -> pd.DataFrame:
         "LONG_DESC1": product_dict.get("marketing_description", ""),
     }
     
-    # Map Feature bullets
+    
     bullets = product_dict.get("bullet_points", [])
     for i, b in enumerate(bullets[:20]):
         row[f"ITEM_FEATURES_{i+1}"] = b
         
-    # Map Attributes to Label, Value, UOM
+    
     attrs = product_dict.get("attributes", [])
     for i, attr in enumerate(attrs[:50]):
         row[f"ATTRIBUTE_LABEL {i+1}"] = attr.get("key", "")
@@ -305,19 +304,19 @@ if "active_sku" not in st.session_state:
 if "current_filename" not in st.session_state:
     st.session_state["current_filename"] = ""
 
-# --- POP-UP DIALOG MODALS ---
+
 
 @st.dialog("📤 Upload & Extract Catalog Data (PDF / CSV)")
 def modal_upload_pdf():
     st.markdown("<p style='color:#e2e8f0; font-size:15px;'>Upload an industrial technical PDF datasheet or a B2B catalog dataset (.csv) to enrich and audit live.</p>", unsafe_allow_html=True)
     
-    # 1. Allow both PDF and CSV
+    
     uploaded_file = st.file_uploader("Select Catalog File (PDF or CSV):", type=["pdf", "csv"])
     
     if uploaded_file is not None:
         file_ext = os.path.splitext(uploaded_file.name)[1].lower()
         
-        # --- CASE A: CSV DATASET PROCESSING ---
+        
         if file_ext == ".csv":
             df_uploaded = pd.read_csv(uploaded_file)
             st.write(f"📊 **Detected CSV Dataset:** `{len(df_uploaded)} SKUs found`")
@@ -363,7 +362,7 @@ def modal_upload_pdf():
                     st.success("✨ CSV Item Enriched & Audited!")
                     st.rerun()
 
-        # --- CASE B: PDF DATASHEET PROCESSING ---
+    
         elif file_ext == ".pdf":
             if st.button("⚡ Execute Live PDF Extraction", type="primary", use_container_width=True):
                 with st.spinner("Parsing PDF text, extracting attributes & auditing rules..."):
@@ -434,7 +433,7 @@ def modal_view_history():
     else:
         st.info("No history log file found.")
 
-# --- HERO BANNER ---
+
 st.markdown("""
 <div class="hero-container">
     <div class="hero-title">⚡ CogniSpec AI Product Intelligence Engine</div>
@@ -442,10 +441,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- 2x2 GRID CONTROL PANEL ---
+
 st.markdown("## 🎛️ Platform Workspace")
 
-# ROW 1
+
 g1_c1, g1_c2 = st.columns(2)
 
 with g1_c1:
@@ -470,7 +469,7 @@ with g1_c2:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ROW 2
+
 g2_c1, g2_c2 = st.columns(2)
 
 with g2_c1:
@@ -506,7 +505,7 @@ with g2_c2:
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 
-# --- DISPLAY ACTIVE SKU OR PLATFORM CANVAS ---
+
 if st.session_state["active_sku"] is None:
     
     st.markdown("## 💡 Platform Architecture & System Pipeline")
@@ -554,7 +553,7 @@ if st.session_state["active_sku"] is None:
     p3.metric("Supported Catalog Formats", "PDF, CSV, OCR Images", "B2B Enterprise Ready")
 
 else:
-    # --- ACTIVE SKU DASHBOARD ---
+    
     data_to_display = st.session_state["active_sku"]
     current_filename = st.session_state["current_filename"]
     
@@ -655,11 +654,11 @@ else:
                     st.rerun()
 
             with btn_col2:
-                # 1. Generate delivery DataFrame
+               
                 delivery_df = format_sku_to_CogniSpec_delivery(product)
                 clean_export_df = format_unilog_export(delivery_df)
 
-                # 2. Define the full 252 Unilog Delivery headers
+                
                 unilog_252_cols = [
                     'MFR URL', 'Ref URL 1', 'Ref URL 2', 'Ref URL 3', 'Ref URL 4', 'Ref URL 5', 'PART_NUMBER',
                     'Dept', 'Class', 'Fine', 'SKU - MY_PART_NUMBER', 'Mfg_Part_Num', 'Part_Desc', 'E1_Brand',
@@ -681,7 +680,7 @@ else:
                     'Country Of Origin', 'Discontinued', 'Actual Image (Yes/No)'
                 ]
 
-                # 3. Ensure Part Number fields are filled and reindex to 252 columns
+               
                 part_num = current_filename.replace('.json', '').replace('.pdf', '').replace('_validated','')
                 if "Mfg_Part_Num" in clean_export_df.columns:
                     clean_export_df["Mfg_Part_Num"] = clean_export_df["Mfg_Part_Num"].fillna(part_num)
